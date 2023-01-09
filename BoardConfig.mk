@@ -37,38 +37,37 @@ QCOM_BOARD_PLATFORMS += xiaomi_sm8550
 #BOARD_USES_QCOM_HARDWARE := true
 
 # Kernel
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
+BOARD_KERNEL_PAGESIZE         := 4096
+TARGET_KERNEL_ARCH            := arm64
+TARGET_KERNEL_HEADER_ARCH     := arm64
+BOARD_KERNEL_IMAGE_NAME       := Image
+BOARD_BOOT_HEADER_VERSION     := 4
+TARGET_KERNEL_CLANG_COMPILE   := true
+TARGET_PREBUILT_KERNEL        := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_MKBOOTIMG_ARGS          += --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS          += --pagesize $(BOARD_KERNEL_PAGESIZE)
 
-TARGET_NO_KERNEL := false
-BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-
-BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CLANG_COMPILE := true
-BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-
-BOARD_PAGE_SIZE := 4096
-BOARD_BOOT_HEADER_VERSION := 4
-
-BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_PAGE_SIZE)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+# Ramdisk use lz4
+BOARD_RAMDISK_USE_LZ4 := true
 
 # A/B
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
-    dtbo \
-    odm \
     init_boot \
+    vendor_boot \
+    dtbo \
+    vbmeta \
+    vbmeta_system \
+    odm \
     product \
     system \
     system_ext \
     system_dlkm \
-    vbmeta \
-    vbmeta_system \
     vendor \
-    vendor_boot \
     vendor_dlkm
 
 # Verified Boot
@@ -152,5 +151,6 @@ TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 #TW_NO_SCREEN_BLANK := true
 TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko fts_touch_spi.ko qti_battery_charger.ko"
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone35/temp"
-TW_BATTERY_SYSFS_WAIT_SECONDS := 5
+TW_BATTERY_SYSFS_WAIT_SECONDS := 6
+TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_DEVICE_VERSION := Xiaomi_13-A13

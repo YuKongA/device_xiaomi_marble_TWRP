@@ -34,8 +34,8 @@
 
 #ifndef _BSG_FRAMEWORK_KERNEL_HEADERS
 #ifndef _GENERIC_KERNEL_HEADERS
-#include "include/ioctl.h"
-#include "include/ufs.h"
+#include <scsi/ufs/ioctl.h>
+#include <scsi/ufs/ufs.h>
 #endif
 #endif
 
