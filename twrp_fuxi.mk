@@ -9,6 +9,9 @@ DEVICE_PATH := device/xiaomi/fuxi
 # Inherit from device.mk configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
+# Release name
+PRODUCT_RELEASE_NAME := fuxi
+
 ## Device identifier
 PRODUCT_DEVICE := fuxi
 PRODUCT_NAME := twrp_fuxi
