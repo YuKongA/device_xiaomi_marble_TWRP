@@ -60,6 +60,7 @@ on fs
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
     mount functionfs fastboot /dev/usb-ffs/fastboot uid=1000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
     setprop sys.usb.mtp.device_type 3
+    setprop sys.usb.mtp.batchcancel 1
     setprop sys.usb.configfs 1
 
 on property:ro.boot.usbcontroller=*
