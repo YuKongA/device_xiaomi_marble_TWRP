@@ -15,14 +15,14 @@
 //
 
 cc_library {
-    name: "bootctrl.xiaomi_sm8550",
+    name: "bootctrl.xiaomi_sm7475",
     defaults: ["bootctrl_hal_defaults"],
-    static_libs: ["libgptutils.xiaomi_sm8550"],
+    static_libs: ["libgptutils.xiaomi_sm7475"],
 }
 
 cc_library_shared {
     name: "android.hardware.boot@1.2-impl-qti",
     stem: "android.hardware.boot@1.0-impl-1.2-qti",
     defaults: ["android.hardware.boot@1.2-impl-qti_defaults"],
-    static_libs: ["libgptutils.xiaomi_sm8550"],
+    static_libs: ["libgptutils.xiaomi_sm7475"],
 }

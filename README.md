@@ -1,26 +1,24 @@
-# TWRP device tree for Xiaomi 13
+# TWRP device tree for Redmi Note 12 Turbo/Poco F5
 
-Xiaomi 13 (codenamed _"fuxi"_) is a high-end smartphone from Xiaomi.
+Redmi Note 12 Turbo/Poco F5 (codenamed _"marble"_) is a high-end, mid-range smartphone from Xiaomi.
 
-It was announced & released on December 2022.
+It was announced & released in March 2023.
 
 ## Device specifications
 
-Basic   | Spec Sheet
--------:|:-------------------------
-SoC     | Snapdragon® 8 Gen 2 (SM8550)
-CPU     | 1x3.2 GHz Cortex-X3 & 2x2.8 GHz Cortex-A715 & 2x2.8 GHz Cortex-A710 & 3x2.0 GHz Cortex-A510
-GPU     | Adreno 740
-Memory  | 8/12 GB RAM
-Shipped Android Version | 13.0 with MIUI 14
-Storage | 128/256/512 GB
-Battery | Li-Ion 4500 mAh, non-removable, graphene-enhanced
-Display | 1080 x 2400 pixels, 20:9 ratio (~414 ppi density), 6.36 inches, OLED, 120Hz, Dolby Vision, HDR10+, 1200 nits (HBM), 1900 nits (peak)
-Camera  | 50 MP Leica lens (wide), 10 MP (telephoto), 12 MP (ultrawide), 32 MP (front-wide)
+|      Basic | Spec Sheet                                                        |
+| ---------: | :---------------------------------------------------------------- |
+|        SoC | Snapdragon® 7+ Gen 2 (SM7475-AB)                                  |
+|        CPU | Octa-core CPU with 1x Cortex-X2 & 3x Cortex-A710 & 4x Cortex-A510 |
+|        GPU | Adreno 725 (580 MHz)                                              |
+|     Memory | 8/12/16 GB RAM (LPDDR5)                                           |
+| Shipped OS | 13.0 with MIUI 14                                                 |
+|    Storage | 256/512/1024 GB (UFS 3.1)                                         |
+|    Battery | 5000 mAh, non-removable, 67W fast charge                          |
+|    Display | 1080 x 2400 pixels, 20:9 ratio, 6.67 inches, 120 hz, AMOLED       |
+|     Camera | 64MP (Primary), 8MP (Ultra-wide), 2MP (Macro)                     |
 
-## Device picture
-
-![Xiaomi 13](https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1670745532.86084186.png)
+![Redmi Note 12 Turbo](https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1679982565.12241762.png)
 
 ## Features
 
@@ -39,5 +37,5 @@ Works:
 ## To use it:
 
 ```
-fastboot flash recovery_ab out/target/product/fuxi/recovery.img
+fastboot flash recovery_ab out/target/product/marble/recovery.img
 ```

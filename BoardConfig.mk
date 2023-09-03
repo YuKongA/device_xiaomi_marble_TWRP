@@ -25,15 +25,15 @@ ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
 # Bootloader
-PRODUCT_PLATFORM := kalama
-TARGET_BOOTLOADER_BOARD_NAME := fuxi
+PRODUCT_PLATFORM := taro
+TARGET_BOOTLOADER_BOARD_NAME := $(PRODUCT_RELEASE_NAME)
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
 # Platform
-TARGET_BOARD_PLATFORM := xiaomi_sm8550
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno740
-QCOM_BOARD_PLATFORMS += xiaomi_sm8550
+TARGET_BOARD_PLATFORM := xiaomi_sm7475
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno725
+QCOM_BOARD_PLATFORMS += xiaomi_sm7475
 #BOARD_USES_QCOM_HARDWARE := true
 
 # Kernel
@@ -57,17 +57,15 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
-    init_boot \
-    vendor_boot \
     dtbo \
-    vbmeta \
-    vbmeta_system \
     odm \
     product \
     system \
     system_ext \
-    system_dlkm \
+    vbmeta \
+    vbmeta_system \
     vendor \
+    vendor_boot \
     vendor_dlkm
 
 # Verified Boot
@@ -77,10 +75,10 @@ BOARD_AVB_ENABLE := true
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
 
 # Dynamic Partition
-BOARD_SUPER_PARTITION_SIZE := 9653190656
+BOARD_SUPER_PARTITION_SIZE := 9663676416
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9648996352
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9663676416
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm 
 
 BOARD_PARTITION_LIST := $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 $(foreach p, $(BOARD_PARTITION_LIST), $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := erofs))
@@ -128,6 +126,10 @@ TWRP_INCLUDE_LOGCAT := true
 # Fastbootd
 TW_INCLUDE_FASTBOOTD := true
 
+# Haptic
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+
 # Other TWRP Configurations
 TW_THEME := portrait_hdpi
 TW_FRAMERATE := 60
@@ -144,18 +146,13 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_EXTRA_LANGUAGES := true
-TW_DEFAULT_LANGUAGE := zh_CN
+#TW_DEFAULT_LANGUAGE := zh_CN
 TW_DEFAULT_BRIGHTNESS := 200
 TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
-# Haptic
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
-#TW_NO_SCREEN_BLANK := true
-TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko fts_touch_spi.ko qti_battery_charger.ko"
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone35/temp"
+TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko goodix_core.ko"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone30/temp"
 TW_BATTERY_SYSFS_WAIT_SECONDS := 6
 TW_BACKUP_EXCLUSIONS := /data/fonts
-TW_DEVICE_VERSION := Xiaomi_13-A13
+TW_DEVICE_VERSION := Redmi_Note12Turbo-A13

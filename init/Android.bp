@@ -1,0 +1,14 @@
+cc_library_static {
+    name: "libinit_marble",
+    header_libs: [
+        "libbase_headers",
+    ],
+    cflags: [
+        "-Wall",
+    ],
+    static_libs: [
+        "libbase",
+    ],
+    srcs: ["init_marble.cpp"],
+    recovery_available: true,
+}

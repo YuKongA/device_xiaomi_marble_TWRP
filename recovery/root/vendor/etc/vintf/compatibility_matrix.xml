@@ -53,7 +53,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.qccsyshal</name>
-        <version>1.0-2</version>
+        <version>1.0-1</version>
         <interface>
             <name>IQccsyshal</name>
             <instance>qccsyshal</instance>
@@ -68,10 +68,19 @@
             <instance>sigmahal64</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.wifi.keystore</name>
+        <version>1.0</version>
+        <interface>
+            <name>IKeystoreExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <vendor-ndk>
-        <version>33</version>
+        <version>32</version>
     </vendor-ndk>
     <system-sdk>
-        <version>33</version>
+        <version>31</version>
     </system-sdk>
 </compatibility-matrix>
+

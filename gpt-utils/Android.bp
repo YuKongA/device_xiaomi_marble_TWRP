@@ -16,7 +16,7 @@
 
 
 cc_library {
-    name: "libgptutils.xiaomi_sm8550",
+    name: "libgptutils.xiaomi_sm7475",
     vendor: true,
     recovery_available: true,
     shared_libs: [
